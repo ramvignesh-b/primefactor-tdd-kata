@@ -1,11 +1,14 @@
 export class PrimeFactor {
     public calculateFactors(input: number): number[] {
-        let num = input;
-        const factors: number[] = [];
-
-        if (num <= 1) {
-            return factors;
+        if (input <= 1) {
+            return [];
         }
+
+        return this.findFactors(input);
+    }
+
+    private findFactors(num: number): number[] {
+        const factors: number[] = [];
 
         while (num % 2 === 0) {
             factors.push(2);
