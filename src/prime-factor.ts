@@ -18,10 +18,6 @@ export class PrimeFactor {
             }
         }
 
-        if (num > 1) {
-            factors.push(num)
-        }
-
         return factors;
     }
 }
