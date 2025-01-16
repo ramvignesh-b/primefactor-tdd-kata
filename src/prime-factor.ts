@@ -4,9 +4,6 @@ export class PrimeFactor {
         if (num <= 1) {
             return [];
         }
-        if (num === 3) {
-            return [3];
-        }
-        return [2];
+        return [num];
     }
 }
