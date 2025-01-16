@@ -12,6 +12,11 @@ export class PrimeFactor {
             num /= 2;
         }
 
+        while (num % 3 === 0) {
+            factors.push(3);
+            num /= 3;
+        }
+
         if (num > 1) {
             factors.push(num)
         }
