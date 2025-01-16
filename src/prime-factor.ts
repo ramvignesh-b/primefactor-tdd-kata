@@ -20,6 +20,11 @@ export class PrimeFactor {
             num /= 3;
         }
 
+        while (num % 5 === 0) {
+            factors.push(5)
+            num /= 5;
+        }
+
         if (num > 1) {
             factors.push(num)
         }
