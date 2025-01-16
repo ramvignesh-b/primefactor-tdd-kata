@@ -10,4 +10,8 @@ describe("Prime Factor Calulator", () => {
     it("should return an empty list for 1", () => {
         expect(primeFactor.calculateFactors(1)).toStrictEqual([]);
     });
+
+    it("should return a list of factor [2] for input 2", () => {
+        expect(primeFactor.calculateFactors(2)).toStrictEqual([2]);
+    });
 });
