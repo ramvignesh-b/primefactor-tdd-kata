@@ -26,4 +26,8 @@ describe("Prime Factor Calulator", () => {
     it("should return [5] for input 5", () => {
         expect(primeFactor.calculateFactors(5)).toStrictEqual([5]);
     });
+
+    it("should return [2, 3] for input 6", () => {
+        expect(primeFactor.calculateFactors(6)).toStrictEqual([2, 3]);
+    });
 });
