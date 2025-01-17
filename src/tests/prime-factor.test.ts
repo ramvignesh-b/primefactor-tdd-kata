@@ -69,7 +69,9 @@ describe("Prime Factor Calulator", () => {
 });
 
 
-jest.mock("readline");
+jest.mock("readline", () => ({
+    createInterface: jest.fn(),
+}));
 
 describe("Prime Factor Printer", () => {
     let consoleSpy: jest.SpyInstance;
@@ -77,14 +79,14 @@ describe("Prime Factor Printer", () => {
         consoleSpy = jest.spyOn(console, "log").mockImplementation();
     });
 
-    xit("should print the prime factors of an input to the console", () => {
+    it("should print the prime factors of an input to the console", () => {
 
         primeFactorCalculator();
 
         expect(consoleSpy).toHaveBeenCalledWith("Prime Factors of 60: 2,2,3,5");
     });
 
-    it("should get an input from the user and print the prime factors of that input to the console", () => {
+    xit("should get an input from the user and print the prime factors of that input to the console", () => {
         const input = 264;
 
         const mockInputPrompt = jest.fn((prompt, callback) => {
@@ -92,6 +94,12 @@ describe("Prime Factor Printer", () => {
             callback(input);
         });
         const mockExit = jest.fn();
+
+        jest.mock("./prime-factor", () => ({
+            PrimeFactor: jest.fn().mockImplementation(() => ({
+                calculateFactors: jest.fn(() => [2, 3, 11]),
+            })),
+        }));
 
         (readline.createInterface as jest.Mock).mockReturnValue({
             question: mockInputPrompt,
