@@ -1,4 +1,5 @@
 import { PrimeFactor } from '../prime-factor';
+import { primeFactorCalculator } from '../index';
 
 describe("Prime Factor Calulator", () => {
     let primeFactor: PrimeFactor;
@@ -64,4 +65,17 @@ describe("Prime Factor Calulator", () => {
     });
 
 
+});
+
+
+
+
+describe("Prime Factor Printer", () => {
+    it("should print the prime factors of an input to the console", () => {
+        const consoleSpy = jest.spyOn(console, "log").mockImplementation();
+
+        primeFactorCalculator();
+
+        expect(consoleSpy).toHaveBeenCalledWith("Prime Factors of 60: 2,2,3,5");
+    });
 });
